@@ -7,7 +7,7 @@
         static int oszlopokSzama = 6;
 
         static int[,] szamokMatrix = new int[sorokSzama, oszlopokSzama];
-        static int[,] negyzetesmatrix = new int[sorokSzama, oszlopokSzama];
+        static int[,] negyzetesmatrix = new int[5, 5];
 
         static void F01(int[,]matrix, int min, int max)
         {
@@ -73,6 +73,20 @@
                 Console.WriteLine($"{j + 1}. oszlop összege {osszeg}");
             }
         }
+
+        static void BalAtloOsszeg(int[,]matrix)
+        {
+            int ossz = 0;
+            Console.Write("Az érték: ");
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                Console.Write($"{matrix[i,i], 5}");
+                ossz += matrix[i, i];
+            }
+            Console.WriteLine();
+            Console.WriteLine($"A mátrix bal átlójának összege: {ossz}");
+        }
+
         static void Main(string[] args)
         {
             F01(szamokMatrix, 10, 99);
@@ -83,6 +97,7 @@
             Console.WriteLine("---------------------------------------------------");
             F01(negyzetesmatrix, -100, 100);
             F02(negyzetesmatrix);
+            BalAtloOsszeg(negyzetesmatrix);
         }
     }
 }
