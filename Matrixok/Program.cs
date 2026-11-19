@@ -7,25 +7,26 @@
         static int oszlopokSzama = 6;
 
         static int[,] szamokMatrix = new int[sorokSzama, oszlopokSzama];
+        static int[,] negyzetesmatrix = new int[sorokSzama, oszlopokSzama];
 
-        static void F01()
+        static void F01(int[,]matrix, int min, int max)
         {
-            for (int i = 0; i < sorokSzama; i++)//sorokon megy végig
+            for (int i = 0; i < matrix.GetLength(0); i++)//sorokon megy végig
             {
-                for (int j = 0; j < oszlopokSzama; j++)//oszlopokon megy végig
+                for (int j = 0; j < matrix.GetLength(1); j++)//oszlopokon megy végig
                 {
-                    szamokMatrix[i, j] = r.Next(10, 100);//10-99 közötti számokkal töltöm fel a mátrixot
+                    matrix[i, j] = r.Next(min, max+1);//10-99 közötti számokkal töltöm fel a mátrixot
                 }
             }
         }
 
-        static void F02()
+        static void F02(int[,] matrix)
         {
-           for (int i = 0; i < sorokSzama; i++)
+           for (int i = 0; i < matrix.GetLength(0); i++)
            {
-              for (int j =0; j < oszlopokSzama; j++)
+              for (int j =0; j < matrix.GetLength(1); j++)
               {
-                 Console.Write(szamokMatrix[i, j] + " ");
+                 Console.Write($"{matrix[i, j], 5}");//5 karakternyi helyet hagy az értékeknek kiírásnál
               }
               Console.WriteLine();
            }
@@ -74,11 +75,14 @@
         }
         static void Main(string[] args)
         {
-            F01();
-            F02();
+            F01(szamokMatrix, 10, 99);
+            F02(szamokMatrix);
             F03();
             F04();
             F05();
+            Console.WriteLine("---------------------------------------------------");
+            F01(negyzetesmatrix, -100, 100);
+            F02(negyzetesmatrix);
         }
     }
 }
