@@ -80,11 +80,29 @@
             Console.Write("Az érték: ");
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                Console.Write($"{matrix[i,i], 5}");
+                Console.Write($"{matrix[i,i], 5} ");
                 ossz += matrix[i, i];
             }
             Console.WriteLine();
             Console.WriteLine($"A mátrix bal átlójának összege: {ossz}");
+        }
+
+        static void JobbAtloOsszeg(int[,] matrix)
+        {
+            int ossz = 0;
+            int j = matrix.GetLength(1) - 1;
+
+            Console.Write("Az érték: ");
+
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                Console.Write($"{matrix[i, j],5} ");
+                ossz += matrix[i, j];
+                j--;
+            }
+
+            Console.WriteLine();
+            Console.WriteLine($"A mátrix jobb átlójának összege: {ossz}");
         }
 
         static void Main(string[] args)
@@ -95,9 +113,19 @@
             F04();
             F05();
             Console.WriteLine("---------------------------------------------------");
-            F01(negyzetesmatrix, -100, 100);
+            F01(negyzetesmatrix, 1, 9);
             F02(negyzetesmatrix);
             BalAtloOsszeg(negyzetesmatrix);
+            JobbAtloOsszeg(negyzetesmatrix);
+
+            int[,] masolat = negyzetesmatrix;
+            masolat[0, 0] = 100;
+            Console.WriteLine();
+            Console.WriteLine("A másolat elemei: ");
+            F02(masolat);
+            Console.WriteLine();
+            Console.WriteLine("A négyzetes mátrix: ");
+            F02(negyzetesmatrix);
         }
     }
 }
