@@ -58,11 +58,27 @@
                 Console.WriteLine($"{i+1}. sor összege {osszeg}");
             }
         }
+
+        static void F05()
+        {
+            Console.WriteLine();
+            for (int j = 0; j < oszlopokSzama; j++)
+            {
+                int osszeg = 0;
+                for (int i = 0; i < sorokSzama; i++)
+                {
+                    osszeg += szamokMatrix[i, j];
+                }
+                Console.WriteLine($"{j + 1}. oszlop összege {osszeg}");
+            }
+        }
         static void Main(string[] args)
         {
             F01();
             F02();
             F03();
+            F04();
+            F05();
         }
     }
 }
