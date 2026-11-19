@@ -45,6 +45,19 @@
             Console.WriteLine($"A mátrixban lévő elemek összege: {osszeg}");
         }
 
+        static void F04()
+        {
+            Console.WriteLine();
+            for (int i = 0; i < sorokSzama; i++)
+            {
+                int osszeg = 0;
+                for (int j = 0; j < oszlopokSzama; j++)
+                {
+                    osszeg += szamokMatrix[i, j];
+                }
+                Console.WriteLine($"{i+1}. sor összege {osszeg}");
+            }
+        }
         static void Main(string[] args)
         {
             F01();
